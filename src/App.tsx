@@ -47,7 +47,7 @@ function App() {
 
     // наш глобальный запрос с UseEffect DAL
     useEffect(()=> {
-        dispatch(getTodoTC) // уровень Middleware вызывает функцию getTodo, он определяет что это функция и вызывает ее
+        dispatch(getTodoTC()) // уровень Middleware вызывает функцию getTodo, он определяет что это функция и вызывает ее
     },[])
 
 
