@@ -1,5 +1,11 @@
 import {TasksStateType} from '../App';
-import {_SetTodosType, AddTodolistActionType, RemoveTodolistActionType, setTodosAC} from './todolists-reducer';
+import {
+    _SetTodosType,
+    AddTodolistActionType,
+    changeTodolistTitleAC,
+    RemoveTodolistActionType,
+    setTodosAC
+} from './todolists-reducer';
 import {TaskPriorities, TaskStatuses, TaskType, todolistsAPI, UpdateTaskModelType} from '../api/todolists-api'
 import {Dispatch} from 'redux';
 import {AppRootStateType} from './store';
@@ -112,7 +118,7 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
         case 'ADD-TODOLIST': {
             return {
                 ...state,
-                [action.todolistId]: []
+                [action.todolist.id]: []
             }
         }
         case 'REMOVE-TODOLIST': {
@@ -181,3 +187,10 @@ export const updateTaskStatusTC = (todolistId:string, taskId: string, status: Ta
             })
     }
 }
+
+// export const changeTaskTitleTC = (taskId: string, title: string, todolistId: string) => (dispatch: Dispatch) => {
+//     todolistsAPI.updateTask()
+//         .then((res) => {
+//             dispatch(addTaskAC(res.data.data.item, todolistId))
+//         })
+// }
